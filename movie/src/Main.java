@@ -14,20 +14,9 @@ public class Main {
 
         //영화을 예매 해 봅시다
         //상영관
-        Screen screenA = new Screen();
-        screenA.setScreenNo("A");
-        screenA.setSize("LARGE");
-        screenA.setCapacity(300);
-
-        Screen screenB = new Screen();
-        screenB.setScreenNo("B");
-        screenB.setSize("SMALL");
-        screenB.setCapacity(100);
-
-        Screen screenC = new Screen();
-        screenC.setScreenNo("C");
-        screenC.setSize("MIDDLE");
-        screenC.setCapacity(200);
+        Screen screenA = new Screen("A", "LARGE", 300);
+        Screen screenB = new Screen("B", "SMALL", 100);
+        Screen screenC = new Screen("C", "MIDDLE", 200);
 
         List<Screen> screens = new ArrayList<>();
         screens.add(screenA);
@@ -35,66 +24,43 @@ public class Main {
         screens.add(screenC);
 
         // 영화
-        Movie movie1 = new Movie();
-        movie1.setTitle("인어 공주");
-        movie1.setPrice(10000.00);
-        movie1.setRestricted(0);
-        movie1.setStartTime(LocalDateTime.of(2023, 6, 1, 18, 10));
-        movie1.setScreen(screenA);
+        Movie movie1 = new Movie("인어 공주", LocalDateTime.of(2023, 6, 1, 18, 10),10000.00, 0, screenA);
+        Movie movie2 = new Movie("가디언즈 오즈 갤럭시", LocalDateTime.of(2023, 6, 1, 15, 20),10000.00, 12, screenC);
+        Movie movie3 = new Movie("범죄 도시3", LocalDateTime.of(2023, 6, 1, 19, 20),10000.00, 15, screenB);
 
-        Movie movie2 = new Movie();
-        movie2.setTitle("가디언즈 오즈 갤럭시");
-        movie2.setPrice(10000.00);
-        movie2.setRestricted(12);
-        movie2.setStartTime(LocalDateTime.of(2023, 6, 1, 15, 20));
-        movie2.setScreen(screenC);
-
-        Movie movie3 = new Movie();
-        movie3.setTitle("범죄 도시3");
-        movie3.setPrice(10000.00);
-        movie3.setRestricted(15);
-        movie3.setStartTime(LocalDateTime.of(2023, 6, 1, 19, 20));
-        movie3.setScreen(screenB);
 
         List<Movie> movies = new ArrayList<>();
         movies.add(movie1);
         movies.add(movie2);
         movies.add(movie3);
 
+
         //간식
-        Snack snack1 = new Snack();
-        snack1.setType("팝콘");
-        snack1.setPrice(5000);
-        snack1.setSize("LARGE");
+        Snack snack1 = new Snack("팝콘", 5000 , "LARGE");
 
-        Snack snack2 = new Snack();
-        snack2.setType("콜라");
-        snack2.setPrice(3000);
-        snack2.setSize("LARGE");
 
-        Snack snack3 = new Snack();
-        snack3.setType("버터구이 오징어");
-        snack3.setPrice(10000);
-        snack3.setSize("");
+        Snack snack2 = new Snack("콜라", 3000 , "LARGE");
+
+        Snack snack3 = new Snack("버터구이 오징어", 10000 , "LARGE");
+
+
 
         List<Snack> snacks = new ArrayList<>();
         snacks.add(snack1);
         snacks.add(snack2);
         snacks.add(snack3);
 
-        Discount discount1 = new Discount();
-        discount1.setType("카드");
-        discount1.setRate(10.00);
+        Discount discount1 = new Discount("카드",10.00);
 
-        Discount discount2 = new Discount();
-        discount2.setType("통신");
-        discount2.setRate(5.00);
+
+        Discount discount2 = new Discount("통신",5.00);
+
 
         List<Discount> discounts = new ArrayList<>();
         discounts.add(discount1);
         discounts.add(discount2);
 
-        /*****************실제 예매 하는 부분 ******************/
+        /***************** 실제 예매 하는 부분 ******************/
         //예약자
         Reservation reservation = new Reservation();
         reservation.setName("이재민");
