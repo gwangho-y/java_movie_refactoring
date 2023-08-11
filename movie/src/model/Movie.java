@@ -23,6 +23,22 @@ public class Movie {
     }
 
 
+    public String getTitle() {
+        return title;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public Screen getScreen() {
+        return screen;
+    }
+
     public Integer getRestricted() {
         return restricted;
     }
