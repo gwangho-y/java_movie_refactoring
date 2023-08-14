@@ -1,8 +1,17 @@
 package service;
 
-import imp.Discountable;
+import model.Discount;
+import model.Movie;
 
-public class Discount {
+import java.util.ArrayList;
+
+
+public class DiscountManager {
+    private ArrayList<Discount> discounts;
+
+    public DiscountManager(ArrayList<Discount> discounts) {
+        this.discounts = discounts;
+    }
 
     public Double discountAmount(Double price, String type) {
         switch (type) {

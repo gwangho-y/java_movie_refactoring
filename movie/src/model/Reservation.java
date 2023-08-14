@@ -2,7 +2,7 @@ package model;
 
 
 import imp.Discountable;
-import service.Discount;
+import service.DiscountManager;
 
 public class Reservation implements Discountable {
     private String name;
@@ -11,7 +11,7 @@ public class Reservation implements Discountable {
     private Movie movie;
     private Snack snack;
 
-    Discount discount = new Discount();
+//    DiscountManager discountManager = new DiscountManager();
 
     public Reservation(String name, Integer age, Movie movie, Snack snack ) {
         this.name = name;
@@ -20,6 +20,7 @@ public class Reservation implements Discountable {
         this.snack = snack;
         this.amount = snack.getPrice() + movie.getPrice();
     }
+    //
     public Reservation(String name, Integer age, Movie movie, Snack snack, String type) {
         this(name, age, movie, snack);
         this.amount = discountAmount(movie.getPrice(), type) + discountAmount(snack.getPrice(), type);
@@ -47,6 +48,6 @@ public class Reservation implements Discountable {
 
     @Override
     public Double discountAmount(Double price, String type) {
-        return discount.discountAmount(price, type);
+        return discountManager.discountAmount(price, type);
     }
 }
