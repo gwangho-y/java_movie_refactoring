@@ -2,13 +2,16 @@ package service;
 
 public class Discount {
 
-    // 할인 종류
-    private String type;
-    // 할인율
-    private Double rate;
+    public static Double discountAmount(Double price, String type) {
 
-    public Discount(String type, Double rate) {
-        this.type = type;
-        this.rate = rate;
+        switch (type) {
+            case "카드":
+                price -= price * (10.00 / 100);
+                break;
+            case "통신":
+                price -= price * (5.00 / 100);
+                break;
+        }
+        return price;
     }
 }

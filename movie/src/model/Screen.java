@@ -20,5 +20,11 @@ public class Screen {
         return capacity;
     }
 
+    public String getScreenNo() {
+        return screenNo;
+    }
 
+    public String getSize() {
+        return size;
+    }
 }

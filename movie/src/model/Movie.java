@@ -42,8 +42,4 @@ public class Movie {
     public Integer getRestricted() {
         return restricted;
     }
-
-
-
-
 }

@@ -23,6 +23,7 @@ public class Main {
                         new Screen("C", "MIDDLE", 200)
                 )
         );
+
         // 영화
         MovieService movieService = new MovieService(
                 new ArrayList<>(
@@ -33,6 +34,7 @@ public class Main {
                         )
                 )
         );
+
         //간식
         SnackService snackService  = new SnackService(
                 new ArrayList<>(
@@ -44,55 +46,21 @@ public class Main {
                 )
         );
 
-        Discount discount1 = new Discount("카드",10.00);
-
-        Discount discount2 = new Discount("통신",5.00);
-
-        List<Discount> discounts = new ArrayList<>();
-        discounts.add(discount1);
-        discounts.add(discount2);
-
-
         /***************** 실제 예매 하는 부분 ******************/
-        //예약자
-//        Reservation reservation = new Reservation("이재민", 12);
-//
-//        String movieTitle = "인어 공주";
-//        for(Movie movie: movies) {
-//            if(movieTitle.equals(movie.getTitle())) {
-//                reservation.setMovie(movie);
-//                //나이 제한 구현
-//            }
-//        }
-//
-//        String snackType = "팝콘";
-//        for(Snack snack: snacks) {
-//            if(snackType.equals(snack.getType())) {
-//                reservation.setSnack(snack);
-//            }
-//        }
-//
-//        String discountType = "카드";
-//        for(Discount discount: discounts) {
-//            if(discountType.equals(discount.getType())) {
-//                reservation.setDiscount(discount);
-//            }
-//        }
-//
-//        // 할인 되서 된 계산
-//        Double price = reservation.getMovie().getPrice();
-//        Double rate = reservation.getDiscount().getRate();
-//
-//        Double ratePrice = price * (rate / 100);
-//        reservation.setAmount(price - ratePrice);
-//
-//        System.out.println("************* 영화 예매 확인 ************");
-//        System.out.println("    구매자: " + reservation.getName());
-//        System.out.println("    영화 제목: " + reservation.getMovie().getTitle());
-//        System.out.println("    시간: " + reservation.getMovie().getStartTime().format(DateTimeFormatter.ISO_DATE));
-//        System.out.println("    상영관: " + reservation.getMovie().getScreen().getScreenNo());
-//        System.out.println("    간식: " + reservation.getSnack().getType() + " " + reservation.getSnack().getSize());
-//        System.out.println("    금액: " + (reservation.getAmount() + reservation.getSnack().getPrice()));
+        Reservation reservation = new Reservation(
+                    "이광호",
+                    22,
+                    Discount.discountAmount(movieService.getMovie("인어 공주").getPrice(), "카드"),
+                    movieService.getMovie("인어 공주"),
+                    snackService.getSnack("팝콘")
+                );
 
+        System.out.println("************* 영화 예매 확인 ************");
+        System.out.println("    구매자: " + reservation.getName());
+        System.out.println("    영화 제목: " + reservation.getMovie().getTitle());
+        System.out.println("    시간: " + reservation.getMovie().getStartTime().format(DateTimeFormatter.ISO_DATE));
+        System.out.println("    상영관: " + reservation.getMovie().getScreen().getScreenNo());
+        System.out.println("    간식: " + reservation.getSnack().getType() + " " + reservation.getSnack().getSize());
+        System.out.println("    금액: " + (reservation.getAmount() + reservation.getSnack().getPrice()));
     }
 }
