@@ -1,9 +1,10 @@
 package service;
 
+import imp.Discountable;
+
 public class Discount {
 
-    public static Double discountAmount(Double price, String type) {
-
+    public Double discountAmount(Double price, String type) {
         switch (type) {
             case "카드":
                 price -= price * (10.00 / 100);

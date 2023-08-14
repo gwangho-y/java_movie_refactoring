@@ -3,10 +3,10 @@ package service;
 import model.Movie;
 import java.util.ArrayList;
 
-public class MovieService {
+public class MovieManager {
     private ArrayList<Movie> movies;
 
-    public MovieService(ArrayList<Movie> movies) {
+    public MovieManager(ArrayList<Movie> movies) {
         this.movies = movies;
     }
 
