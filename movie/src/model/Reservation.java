@@ -9,7 +9,7 @@ public class Reservation {
     private Movie movie;
     private Snack snack;
 
-    public Reservation(String name, Integer age, Double amount, Movie movie, Snack snack ) {
+    public Reservation( String name, Integer age, Double amount, Movie movie, Snack snack ) {
         this.name = name;
         this.age = age;
         this.amount = amount;
