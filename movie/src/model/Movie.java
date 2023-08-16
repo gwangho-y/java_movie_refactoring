@@ -14,45 +14,32 @@ public class Movie {
     //상영관
     private Screen screen;
 
-    public String getTitle() {
-        return title;
+    public Movie(String title, LocalDateTime startTime, Double price, Integer restricted, Screen screen) {
+        this.title = title;
+        this.startTime = startTime;
+        this.price = price;
+        this.restricted = restricted;
+        this.screen = screen;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+
+    public String getTitle() {
+        return title;
     }
 
     public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
-        this.startTime = startTime;
-    }
-
     public Double getPrice() {
         return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public Screen getScreen() {
         return screen;
     }
 
-    public void setScreen(Screen screen) {
-        this.screen = screen;
-    }
-
     public Integer getRestricted() {
         return restricted;
     }
-
-    public void setRestricted(Integer restricted) {
-        this.restricted = restricted;
-    }
-
-
 }

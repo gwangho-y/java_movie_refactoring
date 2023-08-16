@@ -1,25 +1,20 @@
 package service;
 
-public class Discount {
-
-    // 할인 종류
-    private String type;
-    // 할인율
-    private Double rate;
-
-    public String getType() {
-        return type;
+public class Discount implements DiscountType {
+    @Override
+    public Double discountAmount(Double price, String type) {
+        return null;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Double getRate() {
-        return rate;
-    }
-
-    public void setRate(Double rate) {
-        this.rate = rate;
-    }
+//    public static Double discountAmount(Double price, String type) {
+//        switch (type) {
+//            case "카드":
+//                price -= price * (10.00 / 100);
+//                break;
+//            case "통신":
+//                price -= price * (5.00 / 100);
+//                break;
+//        }
+//        return price;
+//    }
 }
