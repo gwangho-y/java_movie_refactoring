@@ -1,60 +1,53 @@
 package model;
 
-import service.Discount;
 
-public class Reservation {
+import imp.Discountable;
+import service.DiscountManager;
+
+public class Reservation implements Discountable {
     private String name;
     private Integer age;
     private Double amount;
     private Movie movie;
     private Snack snack;
-    private Discount discount;
+
+//    DiscountManager discountManager = new DiscountManager();
+
+    public Reservation(String name, Integer age, Movie movie, Snack snack ) {
+        this.name = name;
+        this.age = age;
+        this.movie = movie;
+        this.snack = snack;
+        this.amount = snack.getPrice() + movie.getPrice();
+    }
+    //
+    public Reservation(String name, Integer age, Movie movie, Snack snack, String type) {
+        this(name, age, movie, snack);
+        this.amount = discountAmount(movie.getPrice(), type) + discountAmount(snack.getPrice(), type);
+    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-    public Snack getSnack() {
-        return snack;
-    }
-
-    public void setSnack(Snack snack) {
-        this.snack = snack;
-    }
-
-    public Discount getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(Discount discount) {
-        this.discount = discount;
     }
 
     public Integer getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public Double getAmount() {
+        return amount;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public Snack getSnack() {
+        return snack;
+    }
+
+    @Override
+    public Double discountAmount(Double price, String type) {
+        return discountManager.discountAmount(price, type);
     }
 }

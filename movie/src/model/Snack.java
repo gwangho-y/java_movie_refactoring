@@ -1,36 +1,32 @@
 package model;
 
-public class Snack {
+import imp.Discountable;
+
+public class Snack  {
     // 종류
-    private String type;
+    private String name;
 
     //가격
-    private Integer price;
+    private Double price;
 
     //사이즈
     private String size;
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
+    public Snack(String type, Double price, String size) {
+        this.name = type;
         this.price = price;
+        this.size = size;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 
     public String getSize() {
         return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
     }
 }
